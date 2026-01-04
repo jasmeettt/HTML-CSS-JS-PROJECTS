@@ -21,6 +21,18 @@ body {
     border-radius: 14px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 
+    &.start {
+        .user-result img {
+            animation: userShake 0.7s ease infinite;
+        }
+    }
+
+    &.start {
+        .cpu-result img {
+            animation: cpuShake 0.7s ease infinite;
+        }
+    }
+
     .result-images {
         display: flex;
         column-gap: 7rem;
@@ -28,6 +40,7 @@ body {
         .user-result {
             transform: rotate(90deg);
         }
+
         .cpu-result {
             transform: rotate(-90deg) rotateY(180deg);
         }
@@ -43,6 +56,12 @@ body {
         font-size: 2rem;
         margin-top: 1.5rem;
         font-weight: bold;
+    }
+
+    &.start {
+        .option-images {
+            pointer-events: none;
+        }
     }
 
     .option-images {
@@ -78,5 +97,17 @@ body {
                 opacity: 1;
             }
         }
+    }
+}
+
+@keyframes userShake {
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes cpuShake {
+    50% {
+        transform: translateY(-10px);
     }
 }

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -20,20 +21,35 @@ body {
   border-radius: 14px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
+
+.container.start .user-result img {
+  -webkit-animation: userShake 0.7s ease infinite;
+  animation: userShake 0.7s ease infinite;
+}
+
+.container.start .cpu-result img {
+  -webkit-animation: cpuShake 0.7s ease infinite;
+  animation: cpuShake 0.7s ease infinite;
+}
+
 .container .result-images {
   display: flex;
   -moz-column-gap: 7rem;
-       column-gap: 7rem;
+  column-gap: 7rem;
 }
+
 .container .result-images .user-result {
   transform: rotate(90deg);
 }
+
 .container .result-images .cpu-result {
   transform: rotate(-90deg) rotateY(180deg);
 }
+
 .container .result-images img {
   width: 100px;
 }
+
 .container .result {
   text-align: center;
   color: #7d2ae0;
@@ -41,12 +57,18 @@ body {
   margin-top: 1.5rem;
   font-weight: bold;
 }
+
+.container.start .option-images {
+  pointer-events: none;
+}
+
 .container .option-images {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 2.5rem;
 }
+
 .container .option-images .option-image {
   cursor: pointer;
   display: flex;
@@ -55,19 +77,48 @@ body {
   opacity: 0.5;
   transition: opacity 0.3s ease;
 }
+
 .container .option-images .option-image img {
   width: 50px;
   pointer-events: none;
 }
+
 .container .option-images .option-image p {
   font-size: 1.235rem;
   color: #7d2ae0;
   pointer-events: none;
 }
+
 .container .option-images .option-image.active {
   opacity: 1;
 }
+
 .container .option-images .option-image:hover {
   opacity: 1;
 }
+
+@-webkit-keyframes userShake {
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes userShake {
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+@-webkit-keyframes cpuShake {
+  50% {
+    transform: rotate(-10px);
+  }
+}
+
+@keyframes cpuShake {
+  50% {
+    transform: rotate(-10px);
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
