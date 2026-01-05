@@ -9,7 +9,6 @@ let drawScore = document.querySelector(".draw-score");
 let autoBtn = document.querySelector(".auto");
 let resetBtn = document.querySelector(".reset");
 
-
 let cpuImages = [
   "./Images/rock.png",
   "./Images/paper.png",
@@ -18,7 +17,7 @@ let cpuImages = [
 
 const choices = ["R", "P", "S"];
 
-const score ={
+const score = {
   user: 0,
   cpu: 0,
   draw: 0,
@@ -76,7 +75,7 @@ function playRound(userIndex) {
     const userValue = choices[userIndex];
     const cpuValue = choices[randomNumber];
 
-    //object taht will contain the outcomes
+    //object that will contain the outcomes
     const outcomes = {
       RR: "Draw",
       RP: "Cpu",
@@ -111,11 +110,10 @@ function playRound(userIndex) {
       Draw: "draw",
     };
 
-
     if (scoreMap[outcomeValue]) {
-  score[scoreMap[outcomeValue]]++;
-}
-    localStorage.setItem("rps-score", JSON.stringify(score))
+      score[scoreMap[outcomeValue]]++;
+    }
+    localStorage.setItem("rps-score", JSON.stringify(score));
     updateUI();
 
     console.log(score);
@@ -151,7 +149,7 @@ function startAutoPlay() {
 function stopAutoPlay() {
   isAutoPlaying = false;
   autoBtn.textContent = "Auto";
-container.classList.remove("autoplay");
+  container.classList.remove("autoplay");
 
   clearInterval(autoPlayInterval);
   autoPlayInterval = null;
@@ -165,7 +163,7 @@ function resetGame() {
     stopAutoPlay();
   }
 
-  //scorereset
+  //score reset
   score.user = 0;
   score.cpu = 0;
   score.draw = 0;
@@ -181,12 +179,11 @@ function resetGame() {
   cpuResult.src = "./Images/rock.png";
 
   //remove start from container
-  container.classList.remove("start")
+  container.classList.remove("start");
 
-  //remove active selction 
-  optionImages.forEach(img => img.classList.remove("active"))
+  //remove active selection
+  optionImages.forEach((img) => img.classList.remove("active"));
 
   //localStorage
   localStorage.removeItem("rps-score");
-
 }

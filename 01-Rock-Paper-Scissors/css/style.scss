@@ -26,10 +26,6 @@ body {
     max-width: 600px; /* optional but recommended */
     padding: 0 1rem;
 
-
-    
-    
-
     .score-text {
         display: flex;
         gap: 1rem;
@@ -60,7 +56,6 @@ body {
     padding: 2rem 7rem;
     border-radius: 14px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-
 
     &.autoplay {
         .option-images {
