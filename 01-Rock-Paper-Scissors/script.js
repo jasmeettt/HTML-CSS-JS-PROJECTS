@@ -3,6 +3,12 @@ let userResult = document.querySelector(".user-result img");
 let cpuResult = document.querySelector(".cpu-result img");
 let result = document.querySelector(".result");
 let optionImages = document.querySelectorAll(".option-image");
+let userScore = document.querySelector(".user-score");
+let cpuScore = document.querySelector(".cpu-score");
+let drawScore = document.querySelector(".draw-score");
+let autoBtn = document.querySelector(".auto");
+let resetBtn = document.querySelector(".reset");
+
 
 let cpuImages = [
   "./Images/rock.png",
@@ -12,41 +18,66 @@ let cpuImages = [
 
 const choices = ["R", "P", "S"];
 
+const score ={
+  user: 0,
+  cpu: 0,
+  draw: 0,
+};
+
+const savedScore = localStorage.getItem("rps-score");
+
+if (savedScore) {
+  const parsedScore = JSON.parse(savedScore);
+  score.user = parsedScore.user;
+  score.cpu = parsedScore.cpu;
+  score.draw = parsedScore.draw;
+  updateUI();
+}
+
+let isAutoPlaying = false;
+let autoPlayInterval = null;
+let roundTimeout = null;
+
 optionImages.forEach((image, index) => {
   image.addEventListener("click", (e) => {
+    //clicked button
+    optionImages.forEach((img) => img.classList.remove("active"));
     image.classList.add("active");
 
-    userResult.src = cpuResult.src = "./Images/rock.png"
-    result.textContent = "Playing..."
+    //start game
+    playRound(index);
+  });
+});
 
+function playRound(userIndex) {
+  if (roundTimeout) {
+    clearInterval(roundTimeout);
+    roundTimeout = null;
+  }
 
-    //checking if index matches and then removing the active class.
-    optionImages.forEach((image2, index2) => {
-      index !== index2 && image2.classList.remove("active");
-    });
+  //reset visuals
+  userResult.src = "./Images/rock.png";
+  cpuResult.src = "./Images/rock.png";
+  result.textContent = "Playing...";
+  container.classList.add("start");
 
-    container.classList.add("start")
+  //delay animation
+  const time = setTimeout(() => {
+    container.classList.remove("start");
 
-    //setting a timeout for the process to take its time
-    let time = setTimeout(()=>{
+    //user choice
+    userResult.src = cpuImages[userIndex];
 
-    container.classList.remove("start")
-
-      //getting the image src
-    //user image
-    let imgSrc = image.querySelector("img").src;
-    userResult.src = imgSrc;
-
-    //cpu image
-    let randomNumber = Math.floor(Math.random() * 3);
+    //cpu choice
+    const randomNumber = Math.floor(Math.random() * 3);
     cpuResult.src = cpuImages[randomNumber];
 
-    //getting the values from the user and cpu as R,P,S
-    let userValue = choices[index];
-    let cpuValue = choices[randomNumber];
+    //decide winner
+    const userValue = choices[userIndex];
+    const cpuValue = choices[randomNumber];
 
-    //objext with all possible out comes
-    let outcomes = {
+    //object taht will contain the outcomes
+    const outcomes = {
       RR: "Draw",
       RP: "Cpu",
       RS: "User",
@@ -58,11 +89,104 @@ optionImages.forEach((image, index) => {
       SP: "User",
     };
 
-    //looking up the outcomes based on the cpu and user value
-    let outcomeValue = outcomes[userValue + cpuValue];
+    //outcome value
+    const outcomeValue = outcomes[userValue + cpuValue];
 
-    //display result
-    result.textContent = userValue === cpuValue ? "Match Draw" : `${outcomeValue} Won !!`
-    },2500)
-  });
+    //show Result
+    result.textContent =
+      userValue === cpuValue ? "Match Draw" : `${outcomeValue} Won!!`;
+
+    //score updating
+    // if (outcomeValue === "User") {
+    //   score.user++;
+    // } else if (outcomeValue === "Cpu") {
+    //   score.cpu++;
+    // }else{
+    //   score.draw++
+    // }
+
+    const scoreMap = {
+      User: "user",
+      Cpu: "cpu",
+      Draw: "draw",
+    };
+
+
+    if (scoreMap[outcomeValue]) {
+  score[scoreMap[outcomeValue]]++;
+}
+    localStorage.setItem("rps-score", JSON.stringify(score))
+    updateUI();
+
+    console.log(score);
+  }, 1800);
+}
+
+//ui update
+function updateUI() {
+  userScore.textContent = `User: ${score.user}`;
+  cpuScore.textContent = `Cpu: ${score.cpu}`;
+  drawScore.textContent = `Draws: ${score.draw}`;
+}
+
+//auto play functionality
+autoBtn.addEventListener("click", () => {
+  if (!isAutoPlaying) {
+    startAutoPlay();
+  } else {
+    stopAutoPlay();
+  }
 });
+
+function startAutoPlay() {
+  isAutoPlaying = true;
+  autoBtn.textContent = "Stop";
+  container.classList.add("autoplay");
+
+  autoPlayInterval = setInterval(() => {
+    const userRandomIndex = Math.floor(Math.random() * 3);
+    playRound(userRandomIndex);
+  }, 2400);
+}
+function stopAutoPlay() {
+  isAutoPlaying = false;
+  autoBtn.textContent = "Auto";
+container.classList.remove("autoplay");
+
+  clearInterval(autoPlayInterval);
+  autoPlayInterval = null;
+}
+
+//Reset functionality
+resetBtn.addEventListener("click", resetGame);
+
+function resetGame() {
+  if (isAutoPlaying) {
+    stopAutoPlay();
+  }
+
+  //scorereset
+  score.user = 0;
+  score.cpu = 0;
+  score.draw = 0;
+
+  //update ui again
+  updateUI();
+
+  //result text
+  result.textContent = "Let's Play";
+
+  //image reset
+  userResult.src = "./Images/rock.png";
+  cpuResult.src = "./Images/rock.png";
+
+  //remove start from container
+  container.classList.remove("start")
+
+  //remove active selction 
+  optionImages.forEach(img => img.classList.remove("active"))
+
+  //localStorage
+  localStorage.removeItem("rps-score");
+
+}

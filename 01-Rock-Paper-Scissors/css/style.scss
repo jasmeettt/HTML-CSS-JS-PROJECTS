@@ -8,11 +8,51 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
     justify-content: center;
     background-color: #f6f7fb;
+}
+
+.score-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem; /* 👈 smaller base gap */
+    width: 100%;
+    max-width: 600px; /* optional but recommended */
+    padding: 0 1rem;
+
+
+    
+    
+
+    .score-text {
+        display: flex;
+        gap: 1rem;
+        color: #7d2ae0;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .buttons {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .btn {
+            padding: 0.5rem 1.5rem;
+            background: #7d2ae0;
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
 }
 
 .container {
@@ -21,15 +61,25 @@ body {
     border-radius: 14px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 
+
+    &.autoplay {
+        .option-images {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+    }
+
     &.start {
         .user-result img {
             animation: userShake 0.7s ease infinite;
+            transform-origin: bottom;
         }
     }
 
     &.start {
         .cpu-result img {
             animation: cpuShake 0.7s ease infinite;
+            transform-origin: bottom;
         }
     }
 
@@ -102,12 +152,12 @@ body {
 
 @keyframes userShake {
     50% {
-        transform: translateY(10px);
+        transform: rotate(10deg);
     }
 }
 
 @keyframes cpuShake {
     50% {
-        transform: translateY(-10px);
+        transform: rotate(-10deg);
     }
 }

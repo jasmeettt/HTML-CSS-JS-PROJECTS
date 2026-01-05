@@ -1,36 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript Game | Rock Paper Scissor</title>
-    <link rel="shortcut icon" href="./Images/rock.png" type="image/x-icon" >
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
+    <link rel="shortcut icon" href="./Images/rock.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="score-button-container">
+      <div class="score-text">
+        <p class="user-score score-value">User: 0</p>
+        <p class="cpu-score score-value">CPU: 0</p>
+        <p class="draw-score score-value">Draws: 0</p>
+      </div>
+
+      <div class="buttons">
+        <button class="auto btn">Auto</button>
+        <button class="reset btn">Reset</button>
+      </div>
+    </div>
     <section class="container">
-        <div class="result-field">
-            <div class="result-images">
-                <span class="user-result"><img src="./Images/rock.png" alt="Images"></span>
-                <span class="cpu-result"><img src="./Images/rock.png" alt="Images"></span>
-            </div>
-            <div class="result">Let's Play</div>
+      <div class="result-field">
+        <div class="result-images">
+          <span class="user-result"
+            ><img src="./Images/rock.png" alt="Images"
+          /></span>
+          <span class="cpu-result"
+            ><img src="./Images/rock.png" alt="Images"
+          /></span>
         </div>
-        <div class="option-images">
-            <span class="option-image">
-                <img src="./Images/rock.png" alt="Images">
-                <p>Rock</p>     
-            </span>
-            <span class="option-image">
-                <img src="./Images/paper.png" alt="Images">
-                <p>Paper</p>     
-            </span>
-            <span class="option-image">
-                <img src="./Images/scissors.png" alt="Images">
-                <p>Scissor</p>     
-            </span>
-        </div>
+        <div class="result">Let's Play</div>
+      </div>
+      <div class="option-images">
+        <span class="option-image">
+          <img src="./Images/rock.png" alt="Images" />
+          <p>Rock</p>
+        </span>
+        <span class="option-image">
+          <img src="./Images/paper.png" alt="Images" />
+          <p>Paper</p>
+        </span>
+        <span class="option-image">
+          <img src="./Images/scissors.png" alt="Images" />
+          <p>Scissor</p>
+        </span>
+      </div>
     </section>
     <script src="script.js" defer></script>
-</body>
+  </body>
 </html>
