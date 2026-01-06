@@ -15,3 +15,4 @@ Each project is self-contained and designed to highlight specific concepts, from
 | # | Project Name | Live Demo | Source Code |
 |---|--------------|-----------|-------------|
 | 01 | Rock Paper Scissors | [Live Demo](./01-Rock-Paper-Scissors/index.html) | [Source Code](./01-Rock-Paper-Scissors/) |
+| 02 | Image Slider | [Live Demo](./02-Image-Slider/index.html) | [Source Code](./02-Image-Slider/) |
