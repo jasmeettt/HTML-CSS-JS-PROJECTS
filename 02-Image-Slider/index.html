@@ -1,115 +1,120 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider | JavaScript Project</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="./Images/mainLogo.jpg"
+      type="image/x-icon"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="./src/output.css" rel="stylesheet" />
-  <title>Image Slider | JavaScript Project</title>
-  <link rel="shortcut icon" href="./images/mainLogo.jpg" type="image/x-icon">
-</head>
+  <body>
+    <!-- [1140px] -->
+    <!-- header -->
+    <header>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+      </nav>
+    </header>
 
-<body class="bg-black text-white text-[12px] m-0 p-0 box-border font-'Poppins'">
-  <!-- [1140px] -->
-  <!-- header -->
-  <header class="w-285 max-w-[80%] h-12.5 flex items-center m-auto">
-    <nav>
-      <a class="mr-10" href="#">Home</a>
-      <a class="mr-10" href="#">Contact</a>
-      <a class="mr-10" href="#">About</a>
-    </nav>
-  </header>
-
-  <!-- carousel -->
-  <div class="carousel">
-    <div class="list">
-      <!-- Item 1: Woman in Black -->
-      <div class="item">
-        <img src="./images/img-1.jpg" alt="Woman in Black">
-        <div class="content">
-          <div class="author">FASHION</div>
-          <div class="title">ELEGANCE IN BLACK</div>
-          <div class="topic ">PORTRAIT</div>
-          <div class="des">
-            Discover the power of sophistication. A timeless look that speaks volumes through silence and shadow,
-            embodying grace and mystery in every detail.
-          </div>
-          <div class="buttons">
-            <button>SEE MORE</button>
-            <button>SUBSCRIBE</button>
+    <!-- carousel -->
+    <div class="carousel">
+      <div class="list">
+        <!-- Item 1: Woman in Black -->
+        <div class="item">
+          <img src="./images/img-1.jpg" alt="Woman in Black" />
+          <div class="content">
+            <div class="author">FASHION</div>
+            <div class="title">ELEGANCE IN BLACK</div>
+            <div class="topic">PORTRAIT</div>
+            <div class="des">
+              Discover the power of sophistication. A timeless look that speaks
+              volumes through silence and shadow, embodying grace and mystery in
+              every detail.
+            </div>
+            <div class="buttons">
+              <button>SEE MORE</button>
+              <button>SUBSCRIBE</button>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Item 2: Child with Headphones -->
-      <div class="item">
-        <img src="./images/img-2.jpg" alt="Child with Headphones">
-        <div class="content">
-          <div class="author">MUSIC</div>
-          <div class="title">FEEL THE RHYTHM</div>
-          <div class="topic">LIFESTYLE</div>
-          <div class="des">
-            Lost in the melody, surrounded by vibrant lights. Experience the joy of music and the freedom it brings to
-            the soul, no matter the age.
-          </div>
-          <div class="buttons">
-            <button>SEE MORE</button>
-            <button>SUBSCRIBE</button>
-          </div>
-        </div>
-      </div>
-      <!-- Item 3: Man in Denim -->
-      <div class="item">
-        <img src="./images/img-3.jpg" alt="Man in Denim">
-        <div class="content">
-          <div class="author">STREETWEAR</div>
-          <div class="title">URBAN CASUAL</div>
-          <div class="topic">FASHION</div>
-          <div class="des">
-            Embrace the cool confidence of denim. A style that defines the modern generation—effortless, versatile, and
-            always ready for the city streets.
-          </div>
-          <div class="buttons">
-            <button>SEE MORE</button>
-            <button>SUBSCRIBE</button>
+        <!-- Item 2: Child with Headphones -->
+        <div class="item">
+          <img src="./images/img-2.jpg" alt="Child with Headphones" />
+          <div class="content">
+            <div class="author">MUSIC</div>
+            <div class="title">FEEL THE RHYTHM</div>
+            <div class="topic">LIFESTYLE</div>
+            <div class="des">
+              Lost in the melody, surrounded by vibrant lights. Experience the
+              joy of music and the freedom it brings to the soul, no matter the
+              age.
+            </div>
+            <div class="buttons">
+              <button>SEE MORE</button>
+              <button>SUBSCRIBE</button>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Item 4: Woman in White -->
-      <div class="item">
-        <img src="./images/img-4.jpg" alt="Woman in White">
-        <div class="content">
-          <div class="author">CLASSIC</div>
-          <div class="title">TIMELESS GRACE</div>
-          <div class="topic">BEAUTY</div>
-          <div class="des">
-            Radiate beauty with classic lace and soft tones. A tribute to vintage charm and the enduring allure of
-            feminine elegance.
-          </div>
-          <div class="buttons">
-            <button>SEE MORE</button>
-            <button>SUBSCRIBE</button>
+        <!-- Item 3: Man in Denim -->
+        <div class="item">
+          <img src="./images/img-3.jpg" alt="Man in Denim" />
+          <div class="content">
+            <div class="author">STREET WEAR</div>
+            <div class="title">URBAN CASUAL</div>
+            <div class="topic">FASHION</div>
+            <div class="des">
+              Embrace the cool confidence of denim. A style that defines the
+              modern generation—effortless, versatile, and always ready for the
+              city streets.
+            </div>
+            <div class="buttons">
+              <button>SEE MORE</button>
+              <button>SUBSCRIBE</button>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Item 5: Man in Hat -->
-      <div class="item">
-        <img src="./images/img-5.jpg" alt="Man with Hat">
-        <div class="content">
-          <div class="author">TREND</div>
-          <div class="title">SMART VISION</div>
-          <div class="topic">STYLE</div>
-          <div class="des">
-            Sharp, smart, and ahead of the curve. Accessorize your look with confidence and show the world your unique
-            perspective on style.
+        <!-- Item 4: Woman in White -->
+        <div class="item">
+          <img src="./images/img-4.jpg" alt="Woman in White" />
+          <div class="content">
+            <div class="author">CLASSIC</div>
+            <div class="title">TIMELESS GRACE</div>
+            <div class="topic">BEAUTY</div>
+            <div class="des">
+              Radiate beauty with classic lace and soft tones. A tribute to
+              vintage charm and the enduring allure of feminine elegance.
+            </div>
+            <div class="buttons">
+              <button>SEE MORE</button>
+              <button>SUBSCRIBE</button>
+            </div>
           </div>
-          <div class="buttons">
-            <button>SEE MORE</button>
-            <button>SUBSCRIBE</button>
+        </div>
+        <!-- Item 5: Man in Hat -->
+        <div class="item">
+          <img src="./images/img-5.jpg" alt="Man with Hat" />
+          <div class="content">
+            <div class="author">TREND</div>
+            <div class="title">SMART VISION</div>
+            <div class="topic">STYLE</div>
+            <div class="des">
+              Sharp, smart, and ahead of the curve. Accessorize your look with
+              confidence and show the world your unique perspective on style.
+            </div>
+            <div class="buttons">
+              <button>SEE MORE</button>
+              <button>SUBSCRIBE</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
